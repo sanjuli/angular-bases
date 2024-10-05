@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>DBZ Saludos</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>DBZ Personajes</h1>
+    <hr />
+
+    <div class="row">
+      <div class="col">
+        <dbz-list
+          [characterList]="dbzService.character"
+          (onDelete)="dbzService.onDeleteById($event)"
+        ></dbz-list>
+      </div>
+      <div class="col">
+        <form-dbz
+          (onNewCharacter)="dbzService.onNewCharacter($event)"
+        ></form-dbz>
+      </div>
+    </div>
+  </body>
 </html>
