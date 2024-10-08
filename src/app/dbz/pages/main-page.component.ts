@@ -12,5 +12,17 @@ import { dbzService } from '../services/dbz.service';
   imports: [ListComponentDBZ, FormDbzComponent],
 })
 export class mainPageComponent {
-  constructor(public dbzService: dbzService) {}
+  constructor(private dbzService: dbzService) {}
+
+  get character(): Character[] {
+    return [...this.dbzService.character];
+  }
+
+  onDeleteById(id: string): void {
+    this.dbzService.onDeleteById(id);
+  }
+
+  onNewCharacter(character: Character): void {
+    this.dbzService.onNewCharacter(character);
+  }
 }
